@@ -9,7 +9,7 @@
   "name": "b10-test-kyusufbd",
   "version": "1.0.0",
   "description": "Pet Adoption Website",
-  "main": "postcss.config.js",
+  "main": "index.html",
   "dependencies": {
     "ansi-regex": "^6.1.0",
     "ansi-styles": "^6.2.1",
