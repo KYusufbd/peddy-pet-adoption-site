@@ -1,65 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html class="box-border" data-theme="retro">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="css/main.css" rel="stylesheet" />
   </head>
-  <body>
-    <div class="navbar bg-base-100">
-      <div class="navbar-start">
-        <div class="dropdown">
-          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+  <body class="text-base text-primary-content">
+    <header>
+      <!-- Navbar -->
+      <div class="navbar sect bg-base-100">
+        <div class="navbar-start flex flex-row gap-2">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg
+                width="36px"
+                height="36px"
+                viewBox="0 0 24.00 24.00"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M4 6H20M4 12H20M4 18H20"
+                    stroke="#131313"
+                    stroke-width="1.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </g>
+              </svg>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
+              <li><a href="/">Home</a></li>
+              <li><a href="/">Shop</a></li>
+              <li><a href="/">Contact</a></li>
+            </ul>
           </div>
-          <ul
-            tabindex="0"
-            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-          >
-            <li><a>Item 1</a></li>
-            <li>
-              <a>Parent</a>
-              <ul class="p-2">
-                <li><a>Submenu 1</a></li>
-                <li><a>Submenu 2</a></li>
-              </ul>
-            </li>
-            <li><a>Item 3</a></li>
+          <img src="./assets/images/logo.webp" alt="peddy-logo" />
+          <h1 class="font-black text-3xl">Peddy</h1>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1 text-base">
+            <li><a href="/">Home</a></li>
+            <li><a href="/">Shop</a></li>
+            <li><a href="/">Contact</a></li>
           </ul>
         </div>
-        <a class="btn btn-ghost text-xl font-bold">daisyUI</a>
+        <div class="navbar-end">
+          <div class="flex h-16 w-16">
+            <div
+              class="w-full h-full rounded-full border-2 border-accent flex justify-center items-center"
+            >
+              <svg
+                width="36px"
+                height="36px"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="#131313b3"
+                class="w-4/6 h-4/6 m-auto"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <title></title>
+                  <g id="Complete">
+                    <g id="user">
+                      <g>
+                        <path
+                          d="M20,21V19a4,4,0,0,0-4-4H8a4,4,0,0,0-4,4v2"
+                          fill="none"
+                          stroke="#131313b3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.2"
+                        ></path>
+                        <circle
+                          cx="12"
+                          cy="7"
+                          fill="none"
+                          r="4"
+                          stroke="#131313b3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.2"
+                        ></circle>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal px-1">
-          <li><a>Item 1</a></li>
-          <li>
-            <details>
-              <summary>Parent</summary>
-              <ul class="p-2">
-                <li><a>Submenu 1</a></li>
-                <li><a>Submenu 2</a></li>
-              </ul>
-            </details>
-          </li>
-          <li><a>Item 3</a></li>
-        </ul>
-      </div>
-      <div class="navbar-end">
-        <a class="btn">Button</a>
-      </div>
-    </div>
+    </header>
+    <main class="flex flex-col gap-12">
+      <!-- Banner section -->
+      <section class="sect">
+        <div class="flex flex-col w-full gap-12">
+          <div
+            class="flex flex-col justify-center items-center gap-6 text-center"
+          >
+            <h5>Bringing Families Together ❤️</h5>
+            <h1 class="max-w-[752px]">Your Path to Adoption Starts Here</h1>
+            <p class="max-w-[752px]">
+              It is a long established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout. The
+              point of using Lorem Ipsum is that it has.
+            </p>
+            <a href="#adopt" class="btn btn-primary">View More</a>
+          </div>
+          <div class="">
+            <img
+              class="mx-auto"
+              src="/assets/images/pet-banner.png"
+              alt="Pets"
+            />
+          </div>
+        </div>
+      </section>
+      <!-- Adopt your best friend section -->
+      <section id="adopt" class="sect">
+        <div class="w-full flex flex-col gap-6">
+          <h2 class="font-black text-center mx-auto">Adopt  Your  Best Friend</h2>
+          <p class="max-w-[752px] text-center mx-auto">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

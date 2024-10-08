@@ -24,5 +24,27 @@
         src: url(/../assets/fonts/Lato-Black.ttf) format('truetype');
     }
     
+    h1 {
+        @apply text-4xl;
+        @apply md:text-5xl;
+        @apply lg:text-[72px];
+        @apply leading-normal;
+        @apply font-black;
+    }
+
+    h2 {
+        @apply text-4xl;
+    }
+    
+    h5 {
+        @apply text-2xl;
+    }
+
 }
 
+.sect {
+    @apply max-w-page-width;
+    @apply px-4;
+    @apply md:px-8;
+    @apply mx-auto;
+}

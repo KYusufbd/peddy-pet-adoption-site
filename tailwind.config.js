@@ -8,7 +8,11 @@ module.exports = {
     fontFamily: {
       'sans': ['Lato', ...defaultTheme.fontFamily.sans]
     },
-    extend: {},
+    extend: {
+      maxWidth: {
+        'page-width': '69rem'
+      }
+    },
   },
   plugins: [
     require('daisyui'),
