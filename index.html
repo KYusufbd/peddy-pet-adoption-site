@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="css/main.css" rel="stylesheet" />
+    <script src="/js/app.js"></script>
   </head>
   <body class="text-base text-primary-content">
     <header>
       <!-- Navbar -->
-      <div class="navbar sect bg-base-100">
+      <div class="navbar max-w-page-width mx-auto bg-base-100 mb-8">
         <div class="navbar-start flex flex-row gap-2">
           <div class="dropdown">
             <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -107,7 +108,7 @@
         </div>
       </div>
     </header>
-    <main class="flex flex-col gap-12">
+    <main class="flex flex-col">
       <!-- Banner section -->
       <section class="sect">
         <div class="flex flex-col w-full gap-12">
@@ -123,7 +124,7 @@
             </p>
             <a href="#adopt" class="btn btn-primary">View More</a>
           </div>
-          <div class="">
+          <div>
             <img
               class="mx-auto"
               src="/assets/images/pet-banner.png"
@@ -133,11 +134,13 @@
         </div>
       </section>
       <!-- Adopt your best friend section -->
-      <section id="adopt" class="sect">
+      <section id="adopt" class="sect flex flex-col gap-6">
         <div class="w-full flex flex-col gap-6">
           <h2 class="font-black text-center mx-auto">Adopt  Your  Best Friend</h2>
-          <p class="max-w-[752px] text-center mx-auto">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+          <p class="max-w-[752px] text-center mx-auto">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has.</p>
         </div>
+        <!-- Categories -->
+        <div id="categories" class="w-full flex flex-row flex-wrap justify-between"></div>
       </section>
     </main>
   </body>

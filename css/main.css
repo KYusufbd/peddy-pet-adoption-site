@@ -44,7 +44,24 @@
 
 .sect {
     @apply max-w-page-width;
+    @apply py-8;
     @apply px-4;
     @apply md:px-8;
     @apply mx-auto;
+    @apply w-full;
+}
+
+#categories img {
+    height: 56px;
+}
+
+#categories button {
+    height: 104px;
+    font-size: 24px;
+    width: 232px;
+    margin: 24px auto;
+}
+
+#categories button:hover {
+    border-radius: 52px;
 }
