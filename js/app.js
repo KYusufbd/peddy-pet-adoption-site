@@ -5,16 +5,16 @@ const getData = async (api) => {
   return jsonData;
 };
 
-// List all categories
+// List of all category buttons
 getData("https://openapi.programming-hero.com/api/peddy/categories").then(
   (res) => {
     const categorySection = document.getElementById("categories");
     res.categories.map((e) => {
       const catElements = categorySection.innerHTML;
+
       categorySection.innerHTML =
-        catElements +
-        `
-        <button class="btn btn-outline btn-accent hover:rounded-full">
+        catElements + `
+        <button onclick="filterByCategory('${e.category.toLowerCase()}')" id=${'category-btn-' + e.id} class="btn btn-outline btn-accent hover:rounded-full">
             <img src="${e.category_icon}" class="h-full" />
             ${e.category}
         </button>
@@ -23,8 +23,9 @@ getData("https://openapi.programming-hero.com/api/peddy/categories").then(
   }
 );
 
+
 // Display all available pets / pets of a perticular category.
-function displayPets(source = "pets") {
+function displayPets(source = 'pets') {
   getData(`https://openapi.programming-hero.com/api/peddy/${source}`).then(
     (res) => {
       let data;
@@ -67,9 +68,18 @@ function displayPets(source = "pets") {
       });
     }
   );
-}
+};
 
-// displayPets("category/cat");
+
+// Function for button activation:
+function filterByCategory(categ) {
+    const petDisplay = document.getElementById('pet-display');
+    petDisplay.innerHTML = '';
+    displayPets(`category/${categ}`)
+    console.log('I am called!')
+};
+
+// Function call for primary display of all pets
 displayPets();
 
 /* 
@@ -85,5 +95,33 @@ displayPets();
     "pet_details": "This friendly male Golden Retriever is energetic and loyal, making him a perfect companion for families. Born on January 15, 2023, he enjoys playing outdoors and is especially great with children. Fully vaccinated, he's ready to join your family and bring endless joy. Priced at $1200, he offers love, loyalty, and a lively spirit for those seeking a playful yet gentle dog.",
     "vaccinated_status": "Fully",
     "pet_name": "Sunny"
+}
+
+    Category object model:
+{
+    "status": true,
+    "message": "successfully fetched all the categories data",
+    "categories": [
+        {
+            "id": 1,
+            "category": "Cat",
+            "category_icon": "https://i.ibb.co.com/N7dM2K1/cat.png"
+        },
+        {
+            "id": 2,
+            "category": "Dog",
+            "category_icon": "https://i.ibb.co.com/c8Yp1y7/dog.png"
+        },
+        {
+            "id": 3,
+            "category": "Rabbit",
+            "category_icon": "https://i.ibb.co.com/3hftmLC/rabbit.png"
+        },
+        {
+            "id": 4,
+            "category": "Bird",
+            "category_icon": "https://i.ibb.co.com/6HHZwfq/bird.png"
+        }
+    ]
 }
 */
