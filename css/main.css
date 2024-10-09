@@ -40,6 +40,10 @@
         @apply text-2xl;
     }
 
+    h6 {
+        @apply text-xl;
+    }
+
 }
 
 .sect {
@@ -59,7 +63,7 @@
     height: 104px;
     font-size: 24px;
     width: 232px;
-    margin: 24px auto;
+    margin: 12px auto;
 }
 
 #categories button:hover {
