@@ -14,7 +14,7 @@ getData("https://openapi.programming-hero.com/api/peddy/categories").then(
 
       categorySection.innerHTML =
         catElements + `
-        <button onclick="filterByCategory('${e.category.toLowerCase()}')" id=${'category-btn-' + e.id} class="btn btn-outline btn-accent hover:rounded-full">
+        <button onclick="filterByCategory('${e.category.toLowerCase()}', ${e.id})" id=${'category-btn-' + e.id} class="btn btn-outline btn-accent filter-btn">
             <img src="${e.category_icon}" class="h-full" />
             ${e.category}
         </button>
@@ -48,19 +48,19 @@ function displayPets(source = 'pets') {
                 <h6 class="font-bold">${e.pet_name}</h6>
                 <div class="flex flex-row gap-1">
                   <span>${breedSvg}</span>
-                  <p>Breed: ${e.breed ? e.breed : "Not available"}</p>
+                  <p>&nbsp Breed: ${e.breed ? e.breed : "Not available"}</p>
                 </div>
                 <div class="flex flex-row gap-1">
                 <span>${birthSvg}</span>
-                  <p>Birth: ${e.date_of_birth ? e.date_of_birth : "Not available"}</p>
+                  <p>&nbsp Birth: ${e.date_of_birth ? e.date_of_birth : "Not available"}</p>
                 </div>
                 <div class="flex flex-row gap-1">
                 <span>${genderSvg}</span>
-                  <p>Gender: ${e.gender ? e.gender : "Not available"}</p>
+                  <p>&nbsp Gender: ${e.gender ? e.gender : "Not available"}</p>
                 </div>
                 <div class="flex flex-row gap-1">
                   <span>${priceSvg}</span>
-                  <p>Price : ${e.price}$</p>
+                  <p>&nbsp Price : ${e.price}$</p>
                 </div>
               </div>
             </div>
@@ -72,11 +72,18 @@ function displayPets(source = 'pets') {
 
 
 // Function for button activation:
-function filterByCategory(categ) {
+function filterByCategory(categ, categId) {
     const petDisplay = document.getElementById('pet-display');
     petDisplay.innerHTML = '';
-    displayPets(`category/${categ}`)
-    console.log('I am called!')
+    displayPets(`category/${categ}`);
+    
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const categBtn = document.getElementById(`category-btn-${categId}`);
+
+    filterBtns.forEach(e => {
+      e.classList.remove('rounded-full');
+    });
+    categBtn.classList.add('rounded-full');
 };
 
 // Function call for primary display of all pets
