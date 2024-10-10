@@ -3,84 +3,93 @@
 @tailwind utilities;
 
 @layer base {
-    @font-face {
-        font-family: 'Lato';
-        font-style: normal;
-        font-weight: 400;
-        src: url(/../assets/fonts/Lato-Regular.ttf) format('truetype');
-    }
-    
-    @font-face {
-        font-family: 'Lato';
-        font-style: normal;
-        font-weight: 700;
-        src: url(/../assets/fonts/Lato-Bold.ttf) format('truetype');
-    }
-    
-    @font-face {
-        font-family: 'Lato';
-        font-style: normal;
-        font-weight: 900;
-        src: url(/../assets/fonts/Lato-Black.ttf) format('truetype');
-    }
-    
-    h1 {
-        @apply text-4xl;
-        @apply md:text-5xl;
-        @apply lg:text-[72px];
-        @apply leading-normal;
-        @apply font-black;
-    }
+  @font-face {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 400;
+    src: url(/../assets/fonts/Lato-Regular.ttf) format("truetype");
+  }
 
-    h2 {
-        @apply text-4xl;
-    }
-    
-    h5 {
-        @apply text-2xl;
-    }
+  @font-face {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    src: url(/../assets/fonts/Lato-Bold.ttf) format("truetype");
+  }
 
-    h6 {
-        @apply text-xl;
-    }
+  @font-face {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 900;
+    src: url(/../assets/fonts/Lato-Black.ttf) format("truetype");
+  }
 
+  h1 {
+    @apply text-4xl;
+    @apply md:text-5xl;
+    @apply lg:text-[72px];
+    @apply leading-normal;
+    @apply font-black;
+  }
+
+  h2 {
+    @apply text-4xl;
+  }
+
+  h5 {
+    @apply text-2xl;
+  }
+
+  h6 {
+    @apply text-xl;
+  }
 }
 
 .sect {
-    @apply max-w-page-width;
-    @apply py-8;
-    @apply px-4;
-    @apply md:px-8;
-    @apply mx-auto;
-    @apply w-full;
+  @apply max-w-page-width;
+  @apply py-8;
+  @apply px-4;
+  @apply md:px-8;
+  @apply mx-auto;
+  @apply w-full;
 }
 
 #categories img {
-    height: 56px;
+  height: 56px;
 }
 
 #categories button {
-    height: 104px;
-    font-size: 24px;
-    width: 232px;
-    margin: 12px auto;
+  height: 104px;
+  font-size: 24px;
+  width: 232px;
+  margin: 12px auto;
 }
 
 .pet-card {
-    padding: 20px;
-    gap: 12px;
-    border-radius: 8px;
-    box-shadow: 4px 4px 4px 4px #44444422;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 12px;
+  border-radius: 8px;
+  box-shadow: 4px 4px 4px 4px #44444410;
+}
+
+.pet-card svg {
+  margin-right: 8px;
 }
 
 .pet-image {
-    border-radius: 8px;
-    overflow: hidden;
-    width: 100%;
-    height: 160px;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  height: 160px;
 }
 
 .pet-image img {
-    height: 100%;
-    min-width: 100%;
+  height: 100%;
+  min-width: 100%;
+}
+
+.pet-card h6 {
+  font-weight: bold;
 }

@@ -152,16 +152,13 @@
         <!-- Heading and sort button -->
         <div class="w-full flex flex-row justify-between">
           <h5 class="font-black">Best Deal For you</h5>
-          <button id="sort-btn" class="btn btn-secondary text-xl">
+          <button onclick="sortByPrice()" id="sort-btn" class="btn btn-secondary text-xl">
             Sort by Price
           </button>
         </div>
         <!-- Pet display and favorites section -->
         <div class="w-full grid grid-cols-3 lg:grid-cols-4 gap-6">
-          <div
-            id="pet-display"
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 col-span-2 lg:col-span-3"
-          ></div>
+          <div id="pet-display" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 col-span-2 lg:col-span-3"></div>
           <div id="favorites" class="col-span1 bg-red-50"></div>
         </div>
       </section>

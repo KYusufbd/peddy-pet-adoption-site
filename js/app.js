@@ -24,20 +24,40 @@ getData("https://openapi.programming-hero.com/api/peddy/categories").then(
 );
 
 
+// Code for activating sort by price button:
+let sortPetsByPrice = 0;
+
+function sortByPrice() {
+  sortPetsByPrice === 0 ? sortPetsByPrice = 1 : sortPetsByPrice = 0;
+  document.getElementById('pet-display').innerHTML = "";
+  displayPets();
+  const filterBtns = document.getElementsByClassName('filter-btn');
+  for(const btn in filterBtns) {
+    const fbtn = filterBtns[btn];
+    fbtn.classList.remove('rounded-full');
+  };
+};
+
+
 // Display all available pets / pets of a perticular category.
 function displayPets(source = 'pets') {
   getData(`https://openapi.programming-hero.com/api/peddy/${source}`).then(
     (res) => {
       let data;
       res.pets ? (data = res.pets) : (data = res.data);
+
+      if(sortPetsByPrice) {
+        data = data.sort((a, b) => b.price - a.price);
+      };
+
       data.map((e) => {
         const petDisplay = document.getElementById("pet-display");
         const prevCards = petDisplay.innerHTML;
         petDisplay.innerHTML =
           prevCards +
           `
-            <div class="flex flex-col p-5 gap-3 shadow-lg rounded-lg pet-card">
-              <div class="rounded-lg w-full h-40 overflow-hidden pet-image">
+            <div class="pet-card">
+              <div class="pet-image">
                 <img
                     src="${e.image}"
                     alt=""
@@ -48,19 +68,19 @@ function displayPets(source = 'pets') {
                 <h6 class="font-bold">${e.pet_name}</h6>
                 <div class="flex flex-row gap-1">
                   <span>${breedSvg}</span>
-                  <p>&nbsp Breed: ${e.breed ? e.breed : "Not available"}</p>
+                  <p>Breed: ${e.breed ? e.breed : "Not available"}</p>
                 </div>
                 <div class="flex flex-row gap-1">
                 <span>${birthSvg}</span>
-                  <p>&nbsp Birth: ${e.date_of_birth ? e.date_of_birth : "Not available"}</p>
+                  <p>Birth: ${e.date_of_birth ? e.date_of_birth : "Not available"}</p>
                 </div>
                 <div class="flex flex-row gap-1">
                 <span>${genderSvg}</span>
-                  <p>&nbsp Gender: ${e.gender ? e.gender : "Not available"}</p>
+                  <p>Gender: ${e.gender ? e.gender : "Not available"}</p>
                 </div>
                 <div class="flex flex-row gap-1">
                   <span>${priceSvg}</span>
-                  <p>&nbsp Price : ${e.price}$</p>
+                  <p>Price : ${e.price ? e.price : "Not available"}$</p>
                 </div>
               </div>
             </div>
@@ -71,7 +91,7 @@ function displayPets(source = 'pets') {
 };
 
 
-// Function for button activation:
+// Function for styling active button:
 function filterByCategory(categ, categId) {
     const petDisplay = document.getElementById('pet-display');
     petDisplay.innerHTML = '';
@@ -88,6 +108,7 @@ function filterByCategory(categ, categId) {
 
 // Function call for primary display of all pets
 displayPets();
+
 
 /* 
     Pet object model:
