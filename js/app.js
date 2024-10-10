@@ -36,8 +36,8 @@ function displayPets(source = 'pets') {
         petDisplay.innerHTML =
           prevCards +
           `
-            <div class="flex flex-col p-5 gap-3 shadow-lg rounded-lg">
-              <div class="rounded-lg w-full h-40 overflow-hidden">
+            <div class="flex flex-col p-5 gap-3 shadow-lg rounded-lg pet-card">
+              <div class="rounded-lg w-full h-40 overflow-hidden pet-image">
                 <img
                     src="${e.image}"
                     alt=""
