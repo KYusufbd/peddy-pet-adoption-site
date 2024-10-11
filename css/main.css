@@ -36,6 +36,10 @@
     @apply text-4xl;
   }
 
+  h3 {
+    @apply text-[32px];
+  }
+
   h5 {
     @apply text-2xl;
   }

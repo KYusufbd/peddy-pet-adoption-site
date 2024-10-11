@@ -50,6 +50,19 @@ function displayPets(source = 'pets') {
         data = data.sort((a, b) => b.price - a.price);
       };
 
+      // Code for displaying error message:
+      const notAvailabe = document.getElementById('pet-display-error');
+      
+      if (!data.length) {
+        notAvailabe.classList.remove('hidden');
+        notAvailabe.classList.add('flex');
+      }
+      else {
+        notAvailabe.classList.remove('flex');
+        notAvailabe.classList.add('hidden');
+      };
+
+      // Code for displaying available pet list:
       data.map((e) => {
         const petDisplay = document.getElementById("pet-display");
         const prevCards = petDisplay.innerHTML;
