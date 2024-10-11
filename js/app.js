@@ -96,7 +96,7 @@ function displayPets(source = 'pets') {
                   <p>Price : ${e.price ? e.price : "Not available"}$</p>
                 </div>
               </div>
-              <div class="w-full flex flex-row justify-between card-btns">
+              <div class="w-full flex flex-row flex-wrap justify-between card-btns">
                 <button class="btn btn-accent">${likeSvg}</button>
                 <button class="btn btn-accent">Adopt</button>
                 <button class="btn btn-accent">Details</button>

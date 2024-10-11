@@ -10,7 +10,7 @@ module.exports = {
     },
     extend: {
       maxWidth: {
-        'page-width': '69rem'
+        'page-width': '1120px'
       }
     },
   },

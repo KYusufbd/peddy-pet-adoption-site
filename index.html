@@ -8,9 +8,9 @@
     <script src="/js/svg_icons.js"></script>
   </head>
   <body class="text-base text-primary-content">
-    <header>
+    <header class="w-full">
       <!-- Navbar -->
-      <div class="navbar max-w-page-width mx-auto bg-base-100 mb-8">
+      <div class="navbar sect mx-auto bg-base-100 mb-8">
         <div class="navbar-start flex flex-row gap-2">
           <div class="dropdown">
             <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -109,7 +109,7 @@
         </div>
       </div>
     </header>
-    <main class="flex flex-col">
+    <main class="flex flex-col w-full">
       <!-- Banner section -->
       <section class="sect">
         <div class="flex flex-col w-full gap-12">
@@ -138,7 +138,7 @@
       <section id="adopt" class="sect flex flex-col gap-6">
         <div class="w-full flex flex-col gap-6">
           <h2 class="font-black text-center mx-auto">Adopt Your Best Friend</h2>
-          <p class="max-w-[752px] text-center mx-auto">
+          <p class="w-full lg:max-w-[752px] text-center mx-auto">
             It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout. The point
             of using Lorem Ipsum is that it has.
@@ -150,9 +150,9 @@
           class="w-full flex flex-row flex-wrap justify-between gap-3"
         ></div>
         <!-- Heading and sort button -->
-        <div class="w-full flex flex-row justify-between">
+        <div class="w-full flex flex-col md:flex-row justify-between gap-4">
           <h5 class="font-black">Best Deal For you</h5>
-          <button onclick="sortByPrice()" id="sort-btn" class="btn btn-secondary text-xl">
+          <button onclick="sortByPrice()" id="sort-btn" class="btn btn-secondary text-xl max-w-full">
             Sort by Price
           </button>
         </div>

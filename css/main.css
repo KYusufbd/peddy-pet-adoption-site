@@ -50,12 +50,12 @@
 }
 
 .sect {
-  @apply max-w-page-width;
   @apply py-8;
   @apply px-4;
   @apply md:px-8;
   @apply mx-auto;
-  @apply w-full;
+  width: 1120px;
+  max-width: 100%;
 }
 
 #categories img {
@@ -90,7 +90,6 @@
 
 .card-btns button {
   padding: 8px 12px;
-  margin: 4px;
 }
 
 .pet-card svg {
