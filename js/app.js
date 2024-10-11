@@ -97,7 +97,7 @@ function displayPets(source = 'pets') {
                 </div>
               </div>
               <div class="w-full flex flex-row flex-wrap justify-between card-btns">
-                <button class="btn btn-accent">${likeSvg}</button>
+                <button class="btn btn-accent" onclick="addToFavorite('${e.image}')">${likeSvg}</button>
                 <button class="btn btn-accent">Adopt</button>
                 <button class="btn btn-accent">Details</button>
               </div>
@@ -123,6 +123,30 @@ function filterByCategory(categ, categId) {
     });
     categBtn.classList.add('rounded-full');
 };
+
+
+// Code for favorite section:
+const favoriteList = [];
+
+function displayFavorites() {
+  const favoriteSection = document.getElementById('favorites');
+
+  favoriteList.map(e => {
+    const prev = favoriteSection.innerHTML;
+    favoriteSection.innerHTML = prev + `
+      <div>
+        <img src="${e}" class="h-full min-w-full" />
+      </div>
+    `
+  });
+};
+
+// Add to favorite function:
+function addToFavorite(img) {
+  favoriteList.push(img);
+  displayFavorites();
+};
+
 
 // Function call for primary display of all pets
 displayPets();

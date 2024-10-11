@@ -112,8 +112,8 @@
   font-weight: bold;
 }
 
-.favorite-pets {
-  padding: 20px;
+.pet-container {
   border-radius: 8px;
-  box-shadow: 4px 4px 4px 4px #44444410;
+  border: 1px solid #44444410;
+  /* box-shadow: 4px 4px 4px 4px #44444410; */
 }
