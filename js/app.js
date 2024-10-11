@@ -77,7 +77,7 @@ function displayPets(source = 'pets') {
                     class="h-full min-w-full rounded-lg"
                 />
               </div>
-              <div class="flex flex-col gap-3">
+              <div class="flex flex-col gap-3 pet-desc">
                 <h6 class="font-bold">${e.pet_name}</h6>
                 <div class="flex flex-row gap-1">
                   <span>${breedSvg}</span>
@@ -95,6 +95,11 @@ function displayPets(source = 'pets') {
                   <span>${priceSvg}</span>
                   <p>Price : ${e.price ? e.price : "Not available"}$</p>
                 </div>
+              </div>
+              <div class="w-full flex flex-row justify-between card-btns">
+                <button class="btn btn-accent">${likeSvg}</button>
+                <button class="btn btn-accent">Adopt</button>
+                <button class="btn btn-accent">Details</button>
               </div>
             </div>
         `;
