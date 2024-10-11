@@ -125,26 +125,15 @@ function filterByCategory(categ, categId) {
 };
 
 
-// Code for favorite section:
-const favoriteList = [];
-
-function displayFavorites() {
-  const favoriteSection = document.getElementById('favorites');
-
-  favoriteList.map(e => {
-    const prev = favoriteSection.innerHTML;
-    favoriteSection.innerHTML = prev + `
-      <div>
-        <img src="${e}" class="h-full min-w-full" />
-      </div>
-    `
-  });
-};
-
 // Add to favorite function:
 function addToFavorite(img) {
-  favoriteList.push(img);
-  displayFavorites();
+  const favoriteSection = document.getElementById('favorites');
+  const prev = favoriteSection.innerHTML;
+    favoriteSection.innerHTML = prev + `
+      <div class="fav-img">
+        <img src="${img}" class="h-full min-w-full" />
+      </div>
+    `
 };
 
 

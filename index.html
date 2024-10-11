@@ -158,7 +158,9 @@
         </div>
         <!-- Pet display and favorites section -->
         <div class="w-full grid grid-cols-3 lg:grid-cols-4 gap-6">
-          <div id="pet-display" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 col-span-2 lg:col-span-3 pet-container"></div>
+          <div class="col-span-2 lg:col-span-3">
+            <div id="pet-display" class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+          </div>
           <div id="pet-display-error" class="hidden flex-col justify-center items-center text-center px-4 py-12 gap-6 col-span-2 lg:col-span-3">
             <div>
               <img src="/assets/images/error.webp" alt="not-found">
@@ -166,8 +168,8 @@
             <h3 class="font-bold">No Information Available</h3>
             <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
           </div>
-          <div class="col-span-1 pet-container">
-            <div id="favorites" class="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 "></div>
+          <div class="col-span-1 favorites-container">
+            <div id="favorites" class="w-full grid grid-cols-1 lg:grid-cols-2 gap-2 "></div>
           </div>
         </div>
       </section>

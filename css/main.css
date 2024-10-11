@@ -112,8 +112,13 @@
   font-weight: bold;
 }
 
-.pet-container {
+.favorites-container {
   border-radius: 8px;
-  border: 1px solid #44444410;
-  /* box-shadow: 4px 4px 4px 4px #44444410; */
+  box-shadow: 1px 1px 4px 4px #88888810;
 }
+
+.fav-img {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
