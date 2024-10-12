@@ -6,7 +6,7 @@ const getData = async (api) => {
 };
 
 // Listing all category buttons
-window.onload = () => {
+function showButtons() {
   getData("https://openapi.programming-hero.com/api/peddy/categories").then(
     (res) => {
       const categorySection = document.getElementById("categories");
@@ -202,5 +202,9 @@ function showDetails(id) {
 }
 
 
-// Function call for primary display of all pets
-window.onload = () => displayPets();
+// Function call for primary display of all pets and category buttons
+window.onload = () => {
+  showButtons();
+  displayPets();
+};
+
