@@ -99,7 +99,7 @@ function displayPets(source = 'pets') {
               <div class="w-full flex flex-row flex-wrap justify-between card-btns">
                 <button class="btn btn-accent" onclick="addToFavorite('${e.image}')">${likeSvg}</button>
                 <button class="btn btn-accent">Adopt</button>
-                <button class="btn btn-accent">Details</button>
+                <button class="btn btn-accent" onclick="showDetails('${e.petId}')">Details</button>
               </div>
             </div>
         `;
@@ -135,6 +135,45 @@ function addToFavorite(img) {
       </div>
     `
 };
+
+
+
+// Function for showing details:
+function showDetails(id) {
+  getData(`https://openapi.programming-hero.com/api/peddy/pet/${id}`)
+  .then(res => {
+    const detailsModal = document.getElementById('pet-details');
+    
+    const pet = res.petData;
+    const nA = "Not available"
+
+    detailsModal.innerHTML = `
+      <div class="w-full rounded-lg overflow-hidden">
+        <img class="h-full min-w-full rounded-lg" src="${pet.image ? pet.image : nA}" alt="pet-image">
+      </div>
+      <h5 class="font-bold">${pet.pet_name}</h5>
+      <div class="w-full grid grid-cols-2 grid-flow-row">
+        <p>Breed: ${pet.breed ? pet.breed : nA}</p>
+        <p>Birth: ${pet.date_of_birth ? pet.date_of_birth : nA}</p>
+        <p>Gender: ${pet.gender ? pet.gender : nA}</p>
+        <p>Price : ${pet.price ? pet.price : nA}</p>
+        <p>Vaccinated status: ${pet.vaccinated_status ? pet.vaccinated_status : nA}</p>
+      </div>
+      <hr>
+      <div class="w-full">
+        <p class="font-bold">Details Information</p>
+        <P>${pet.pet_details ? pet.pet_details : nA}</P>
+      </div>
+      <div class="modal-action w-full">
+        <form method="dialog" class="w-full">
+          <button class="btn w-full">Cancel</button>
+        </form>
+      </div>
+    `;
+
+    my_modal_5.showModal();
+  });
+}
 
 
 // Function call for primary display of all pets

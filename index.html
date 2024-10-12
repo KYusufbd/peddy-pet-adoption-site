@@ -156,6 +156,7 @@
             Sort by Price
           </button>
         </div>
+        <button class="btn" onclick="my_modal_5.showModal();">Show Modal</button>
         <!-- Pet display and favorites section -->
         <div class="w-full grid grid-cols-3 lg:grid-cols-4 gap-6">
           <div class="col-span-2 lg:col-span-3">
@@ -171,6 +172,12 @@
           <div class="col-span-1 favorites-container">
             <div id="favorites" class="w-full grid grid-cols-1 lg:grid-cols-2 gap-2 "></div>
           </div>
+          <!-- Pet details modal -->
+          <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+            <div id="pet-details" class="modal-box p-8 rounded-lg flex flex-col gap-3">
+              
+            </div>
+          </dialog>
         </div>
       </section>
     </main>
