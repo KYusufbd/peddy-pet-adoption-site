@@ -153,11 +153,26 @@ function showDetails(id) {
       </div>
       <h5 class="font-bold">${pet.pet_name}</h5>
       <div class="w-full grid grid-cols-2 grid-flow-row">
+      <div class="flex flex-row gap-2">
+        ${breedSvg}
         <p>Breed: ${pet.breed ? pet.breed : nA}</p>
+      </div>
+      <div class="flex flex-row gap-2">
+        ${birthSvg}
         <p>Birth: ${pet.date_of_birth ? pet.date_of_birth : nA}</p>
+      </div>
+      <div class="flex flex-row gap-2">
+        ${genderSvg}
         <p>Gender: ${pet.gender ? pet.gender : nA}</p>
+      </div>
+      <div class="flex flex-row gap-2">
+        ${priceSvg}
         <p>Price : ${pet.price ? pet.price : nA}</p>
+      </div>
+      <div class="flex flex-row gap-2">
+        ${vaccineSvg}
         <p>Vaccinated status: ${pet.vaccinated_status ? pet.vaccinated_status : nA}</p>
+      </div>
       </div>
       <hr>
       <div class="w-full">
