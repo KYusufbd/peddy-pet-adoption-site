@@ -5,7 +5,7 @@ const getData = async (api) => {
   return jsonData;
 };
 
-// List of all category buttons
+// Listing all category buttons
 getData("https://openapi.programming-hero.com/api/peddy/categories").then(
   (res) => {
     const categorySection = document.getElementById("categories");
@@ -26,7 +26,6 @@ getData("https://openapi.programming-hero.com/api/peddy/categories").then(
 
 // Code for activating sort by price button:
 let sortPetsByPrice = 0;
-
 function sortByPrice() {
   sortPetsByPrice === 0 ? sortPetsByPrice = 1 : sortPetsByPrice = 0;
   document.getElementById('pet-display').innerHTML = "";
@@ -41,70 +40,80 @@ function sortByPrice() {
 
 // Display all available pets / pets of a perticular category.
 function displayPets(source = 'pets') {
-  getData(`https://openapi.programming-hero.com/api/peddy/${source}`).then(
-    (res) => {
-      let data;
-      res.pets ? (data = res.pets) : (data = res.data);
+  const loader = document.getElementById('loading');
+  loader.innerHTML = `
+    <div class="w-max mx-auto my-32">
+      <span class="loading loading-bars loading-lg"></span>
+    </div>
+  `
+  // Code for showing loader 2 seconds before loading:
+  setTimeout(() => {
+    getData(`https://openapi.programming-hero.com/api/peddy/${source}`).then(
+      (res) => {
+        loader.innerHTML = '';
+        let data;
+        res.pets ? (data = res.pets) : (data = res.data);
 
-      if(sortPetsByPrice) {
-        data = data.sort((a, b) => b.price - a.price);
-      };
+        if(sortPetsByPrice) {
+          data = data.sort((a, b) => b.price - a.price);
+        };
 
-      // Code for displaying error message:
-      const notAvailabe = document.getElementById('pet-display-error');
-      
-      if (!data.length) {
-        notAvailabe.classList.remove('hidden');
-        notAvailabe.classList.add('flex');
-      }
-      else {
-        notAvailabe.classList.remove('flex');
-        notAvailabe.classList.add('hidden');
-      };
+        // Code for displaying error message:
+        const notAvailabe = document.getElementById('pet-display-error');
+        
+        if (!data.length) {
+          notAvailabe.classList.remove('hidden');
+          notAvailabe.classList.add('flex');
+        }
+        else {
+          notAvailabe.classList.remove('flex');
+          notAvailabe.classList.add('hidden');
+        };
 
-      // Code for displaying available pet list:
-      data.map((e) => {
+        // Code for displaying available pet list:
         const petDisplay = document.getElementById("pet-display");
-        const prevCards = petDisplay.innerHTML;
-        petDisplay.innerHTML =
-          prevCards +
-          `
-            <div class="pet-card">
-              <div class="pet-image">
-                <img
-                    src="${e.image}"
-                    alt=""
-                    class="h-full min-w-full rounded-lg"
-                />
+        data.map((e) => {
+          const prevCards = petDisplay.innerHTML;
+          petDisplay.innerHTML =
+            prevCards +
+            `
+              <div class="pet-card">
+                <div class="pet-image">
+                  <img
+                      src="${e.image}"
+                      alt=""
+                      class="h-full min-w-full rounded-lg"
+                  />
+                </div>
+                <div class="flex flex-col gap-3 pet-desc">
+                  <h6 class="font-bold">${e.pet_name}</h6>
+                  <div class="flex flex-row gap-1">
+                    <span>${breedSvg}</span>
+                    <p>Breed: ${e.breed ? e.breed : "Not available"}</p>
+                  </div>
+                  <div class="flex flex-row gap-1">
+                  <span>${birthSvg}</span>
+                    <p>Birth: ${e.date_of_birth ? e.date_of_birth : "Not available"}</p>
+                  </div>
+                  <div class="flex flex-row gap-1">
+                  <span>${genderSvg}</span>
+                    <p>Gender: ${e.gender ? e.gender : "Not available"}</p>
+                  </div>
+                  <div class="flex flex-row gap-1">
+                    <span>${priceSvg}</span>
+                    <p>Price : ${e.price ? e.price : "Not available"}$</p>
+                  </div>
+                </div>
+                <div class="w-full flex flex-row flex-wrap justify-between card-btns">
+                  <button class="btn btn-accent" onclick="addToFavorite('${e.image}')">${likeSvg}</button>
+                  <button class="btn btn-accent">Adopt</button>
+                  <button class="btn btn-accent" onclick="showDetails('${e.petId}')">Details</button>
+                </div>
               </div>
-              <div class="flex flex-col gap-3 pet-desc">
-                <h6 class="font-bold">${e.pet_name}</h6>
-                <div class="flex flex-row gap-1">
-                  <span>${breedSvg}</span>
-                  <p>Breed: ${e.breed ? e.breed : "Not available"}</p>
-                </div>
-                <div class="flex flex-row gap-1">
-                <span>${birthSvg}</span>
-                  <p>Birth: ${e.date_of_birth ? e.date_of_birth : "Not available"}</p>
-                </div>
-                <div class="flex flex-row gap-1">
-                <span>${genderSvg}</span>
-                  <p>Gender: ${e.gender ? e.gender : "Not available"}</p>
-                </div>
-                <div class="flex flex-row gap-1">
-                  <span>${priceSvg}</span>
-                  <p>Price : ${e.price ? e.price : "Not available"}$</p>
-                </div>
-              </div>
-              <div class="w-full flex flex-row flex-wrap justify-between card-btns">
-                <button class="btn btn-accent" onclick="addToFavorite('${e.image}')">${likeSvg}</button>
-                <button class="btn btn-accent">Adopt</button>
-                <button class="btn btn-accent" onclick="showDetails('${e.petId}')">Details</button>
-              </div>
-            </div>
-        `;
-      });
-    }
+          `;
+        });
+      }
+    )}, 2000
   );
 };
 
@@ -192,49 +201,4 @@ function showDetails(id) {
 
 
 // Function call for primary display of all pets
-displayPets();
-
-
-/* 
-    Pet object model:
-{
-    "petId": 1,
-    "breed": "Golden Retriever",
-    "category": "Dog",
-    "date_of_birth": "2023-01-15",
-    "price": 1200,
-    "image": "https://i.ibb.co.com/p0w744T/pet-1.jpg",
-    "gender": "Male",
-    "pet_details": "This friendly male Golden Retriever is energetic and loyal, making him a perfect companion for families. Born on January 15, 2023, he enjoys playing outdoors and is especially great with children. Fully vaccinated, he's ready to join your family and bring endless joy. Priced at $1200, he offers love, loyalty, and a lively spirit for those seeking a playful yet gentle dog.",
-    "vaccinated_status": "Fully",
-    "pet_name": "Sunny"
-}
-
-    Category object model:
-{
-    "status": true,
-    "message": "successfully fetched all the categories data",
-    "categories": [
-        {
-            "id": 1,
-            "category": "Cat",
-            "category_icon": "https://i.ibb.co.com/N7dM2K1/cat.png"
-        },
-        {
-            "id": 2,
-            "category": "Dog",
-            "category_icon": "https://i.ibb.co.com/c8Yp1y7/dog.png"
-        },
-        {
-            "id": 3,
-            "category": "Rabbit",
-            "category_icon": "https://i.ibb.co.com/3hftmLC/rabbit.png"
-        },
-        {
-            "id": 4,
-            "category": "Bird",
-            "category_icon": "https://i.ibb.co.com/6HHZwfq/bird.png"
-        }
-    ]
-}
-*/
+window.onload = () => displayPets();
