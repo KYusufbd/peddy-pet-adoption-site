@@ -108,7 +108,7 @@ function displayPets(source = 'pets') {
                 </div>
                 <div class="w-full flex flex-row flex-wrap justify-between card-btns">
                   <button class="btn btn-accent" onclick="addToFavorite('${e.image}')">${likeSvg}</button>
-                  <button class="btn btn-accent">Adopt</button>
+                  <button id=${'adopt-btn-'+e.petId} class="btn btn-accent" onclick="adoptPet('${e.petId}')">Adopt</button>
                   <button class="btn btn-accent" onclick="showDetails('${e.petId}')">Details</button>
                 </div>
               </div>
@@ -199,7 +199,31 @@ function showDetails(id) {
 
     my_modal_5.showModal();
   });
-}
+};
+
+
+// Function for adopt button
+function adoptPet(id) {
+  my_modal_4.showModal();
+
+  const countdown = document.getElementById('countdown');
+  const displayCountdown = setInterval(() => {
+    const countdownNum = countdown.innerText;
+    countdown.innerText = countdownNum -1;
+
+    if(countdownNum < 1) {
+      my_modal_4.classList.remove('modal-open');
+      clearInterval(displayCountdown);
+      document.getElementById('close-btn').click();
+      countdown.innerText = 3;
+    }
+  }, 1000);
+
+  const adoptBtn = document.getElementById("adopt-btn-"+id);
+  adoptBtn.classList.add('btn-disabled');
+  adoptBtn.innerText = "Adopted";
+
+};
 
 
 // Function call for primary display of all pets and category buttons

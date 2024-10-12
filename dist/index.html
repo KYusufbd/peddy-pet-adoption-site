@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="/js/app.js"></script>
     <script src="/js/svg_icons.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BFyPqIbR.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cse2_u6Z.css">
   </head>
   <body class="text-base text-primary-content">
     <header class="w-full">
@@ -177,6 +177,21 @@
           <!-- Pet details modal -->
           <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
             <div id="pet-details" class="modal-box p-8 rounded-lg flex flex-col gap-3"></div>
+          </dialog>
+          <!-- Adoption modal -->
+          <dialog id="my_modal_4" class="modal">
+            <div class="modal-box w-11/12 max-w-sm flex flex-col gap-3 items-center">
+              <div class="w-16 h-16"><img src="/assets/handshake-Cc5r_TWS.png" alt="handshake"></div>
+              <h2 class="text-lg font-black">Congrates!</h2>
+              <p class="">Adoption process is start for your pet.</p>
+              <h1 id="countdown">3</h1>
+              <div class="modal-action">
+                <form method="dialog">
+                  <!-- if there is a button, it will close the modal -->
+                  <button id="close-btn" class="btn hidden">Close</button>
+                </form>
+              </div>
+            </div>
           </dialog>
         </div>
       </section>
